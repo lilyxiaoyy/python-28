@@ -1,0 +1,137 @@
+1. 上节内容回顾
+    str:
+        索引和切片
+        [start:end:step]
+    操作：
+        1. upper() 忽略大小写
+        2. startswith() 判断是否以xxx开头
+        3. split() 字符串切割
+        4. strip() 去掉左右两端的空白(空格，\n, \t)
+        5. replace()  字符串的替换
+        6. count()  计数
+        7. find()/index() 查找字符串中是否包含了xxx。 如果包含返回索引
+        8. join() 用一个字符串把一个可迭代对象进行拼接
+        9. len() 返回字符串长度
+        10.isdigit() 是不是数字组成
+   list: 列表
+    []
+    1. append(), insert(), extend()
+    2. remove(元素), pop(2) clear, del
+    3. lst[i] = xxxx
+    4. lst[i]
+        for item in lst:
+
+        for i in range(len(lst)):
+            print(i+1, lst[i]['name'], lst[i]['price'])
+
+    dict: 字典
+        {key:value, key2:value...}
+        key: 必须是可哈希的数据(不可变)
+        value: 每有要求
+
+        1. dict[新key] = 值
+        2. dict.pop(key)
+        3. dict[老key] = 值
+        4. dict[key] 报错
+            dict.get(key)
+
+           for key in dict:
+                print(dict[key])
+           for k,v in dict.items():
+
+2. 编码
+    ascii 美国通用交换代码, 英文字母：大写， 小写， 标点符号，内部操作符
+        长度8bit -> 256个码位
+    ANSI 一套标准.
+        0000 0000 xxxx xxxx
+        长度16bit -> 65536
+    GBK:文件传输和数据存储
+
+    Unicode:  所有国家的文字和信息
+        0000 0000 0000 0000 0000 0000 xxxx xxxx
+        长度32bit -> UCS4
+        0000 0000 xxxx xxxx
+        长度16bit -> UCS2 ->unicode的一个面
+
+    utf-8 ： 可变长度的unicode
+        英文字母：8bit, 1byte
+        欧洲文字：16bit， 2byte
+        中文：24bit， 3byte
+
+        未来我们写网络编程。 文件操作。
+        必须把字符串编码成utf-8进行传输和存储
+
+    encode(编码) 转化成适合传输的字节
+    decode(编码) 把字节转化回人类认识的文字
+
+3. 文件操作(一个循环， 3种模式)
+    open(路径, 模式, 编码)
+    路径: 相对(../), 绝对
+    模式: r,w,a,+,b
+    readline() 读一行
+    for line in f:
+        逐行读取
+    write() 写入
+
+    with open() as f:
+        文件操作
+
+    os.remove()
+    os.rename()
+
+4. 了解函数
+    y = x + 1
+    f(x) = x + 1
+    f(1) = 2
+
+    函数:对功能或者动作的封装
+    语法:
+    def 函数名():
+        函数体(具体的功能代码)
+
+    调用:
+    函数名()
+
+
+5. 函数的返回值
+    return: 如果函数执行过程中执行到了return. 函数一定会中断, 默认值也是None
+    return 值 这个值被称为返回值. 这种写法表示只有一个返回值
+    return 值1, 值2, 值3.... 可以有多个返回值, 多个数据组织称一个元组
+    什么都不写, 默认的返回值是None
+    return None
+
+6. 函数的参数(内容多)
+    参数:在调用函数的时候可以给函数传递信息
+    形参: 在声明函数的时候. 在小括号里写的变量(准备接受外界传递的信息)
+    实参: 在执行函数的时候, 给函数传递的具体的值.
+    形参和实参的数量一一对应
+
+    实参:
+        1. 位置参数
+        2. 关键字参数
+        3. 混合参数: 先写位置, 后写关键字
+
+    形参:
+        1. 位置参数
+        2. 默认值参数
+        3. 动态传参
+            *args 动态接受很多个参数. 只能接受位置参数
+            **kwargs 动态接受多个关键字参数.
+
+           顺序(背下来):
+               位置 > *args > 默认值 > **kwargs
+
+        def func(*args, **kwargs): # 无敌传参
+            pass
+
+        在实参最后一个坑:
+            * 和 ** 在形参: 聚合
+            * 和 ** 在实参: 打散
+
+7. 函数嵌套
+8. 局部变量， 全局变量
+9. global和nonlocal
+    global 把全局变量引入到局部. 可以改变全局变量的值
+    nonlocal 把局部变量引入到局部. 就近原则
+10. 简单的内置函数
+    
