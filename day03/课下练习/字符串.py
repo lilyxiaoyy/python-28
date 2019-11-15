@@ -110,6 +110,10 @@ lst = ['apple', 'banana', 'orange', 'strawberry']
 ret = ','.join(lst)
 print(ret)  # apple,banana,orange,strawberry
 
+'''需要注意，字符串拼接的时候，必须是字符串类型的才行，int型的会报下面的这个错误'''
+lst = ["apple", 7, "banana", "orange"]
+# print(' '.join(lst))  # TypeError: sequence item 1: expected str instance, int found
+
 '''
 7、startswith()判断是否以...开头
 '''

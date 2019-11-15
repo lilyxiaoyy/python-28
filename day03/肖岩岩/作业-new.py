@@ -64,6 +64,14 @@ def printC(str1, color="black"):
 	print("\033[0;%sm%s\033[0m" % (col_type, str1))
 
 
+def format_str(*args):
+	'''格式化字符串输出'''
+	str1 = ""
+	for item in args:
+		str1 += format(item, " <10")
+	return str1
+
+
 def emp_isexist(id):
 	'''
 	判断员工ID是否已存在
@@ -108,13 +116,6 @@ def add_emp_info():
 				f.write(f"{id}\t{name}\t{bir}\t{salary}\t{input_time}\n")
 			printC("员工%s信息录入成功！" % name, "gre")
 			break
-
-def format_str(*args):
-	'''格式化字符串输出'''
-	str1 = ""
-	for item in args:
-		str1 += format(item, " <10")
-	return str1
 
 
 def show_emp_info():
@@ -183,8 +184,8 @@ def del_emp_info():
 while 1:
 	menu = ("查看员工信息", "添加员工信息", "修改员工信息", "删除员工信息", "退出")
 	printC("序号\t功能", "yel")
-	for i, item in enumerate(menu):
-		printC("%s\t\t%s" % (i+1, item), "yel")
+	for i, item in enumerate(menu, 1):
+		printC("%s\t\t%s" % (i, item), "yel")
 	inp = input("请输入功能序号>>>：").strip()
 	if inp == "1":
 		show_emp_info()
