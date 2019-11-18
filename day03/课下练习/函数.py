@@ -240,8 +240,57 @@ def 函数名（形参1, 形参2......）：
 def func(*args, **kwargs):  # 什么都能传进去
 	pass
 	
-*和** 在形参表示聚合，在实参表示打散
-	
+*和** 在形参表示聚合，在实参表示打散	
 '''
 
+'''当知道有几个参数的时候，就不使用*和**'''
+dic = {"name": "lily", "age": 18}
+def func(d):
+	for k, v in d.items():
+		print(k, v)
 
+func(dic)
+'''
+打印结果：
+name lily
+age 18
+
+总结：这里的实参func(dic)属于位置参数，定义函数的地方def func(d)这里的d也是位置参数，因为实参dic是字典的类型，
+所以，形参d有是字典类型。
+实参是什么类型，形参就是什么类型，只有不确定变量的数量的时候，才会使用*和**
+'''
+
+'''当函数有一个形参，并且参数是列表的情况'''
+def func(lst):
+	print(lst)   # ['apple', 'banana', 'orange']
+	print(type(lst))  # <class 'list'>
+
+lst1 = ["apple", "banana", "orange"]
+func(lst1)
+
+'''当函数有一个形参，并且参数是元组的情况'''
+def func(tup):
+	print(tup)  # ('a', 'b', 'c')
+	print(type(tup))  # <class 'tuple'>
+
+tup1 = ("a", "b", "c")
+func(tup1)
+
+'''当函数有一个形参，并且参数是集合的情况'''
+def func(s):
+	print(s)  # {'b', 'a', 'c' }
+	print(type(s))  # print(s)  # {'b', 'a', 'c' }
+
+
+set1 = {"a", "b", "c"}
+func(set1)
+
+'''当函数有一个形参，并且参数是一个函数名的情况'''
+def wrapper(fn):
+	print(fn)  # <function add at 0x00000000029A4A60>
+	print(type(fn))  # <class 'function'>
+
+def add():
+	print("我是新增功能")
+
+wrapper(add)
